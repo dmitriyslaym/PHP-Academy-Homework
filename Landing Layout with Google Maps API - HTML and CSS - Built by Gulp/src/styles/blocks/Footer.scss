@@ -1,0 +1,30 @@
+.footer {
+	padding: 80px 0;
+	&__col {
+		text-align: left;
+		flex: 1 1 260px;
+		&_small {
+			flex: 1 1 140px;
+		}
+		&Heading {
+			font-size: 28px;
+			line-height: 1.25;
+			color: #282828;
+			font-weight: 300;
+			margin-bottom: 15px;
+		}
+		&Logo {
+			vertical-align: middle;
+		}
+		&Text, &Link > a {
+			line-height: 1.857;
+			font-weight: 500;
+		}
+	}
+}
+
+@media screen and (min-width: 950px) {
+	.footer {
+		background: url('../img/footerbg.png') right -200px bottom no-repeat;
+	}
+}

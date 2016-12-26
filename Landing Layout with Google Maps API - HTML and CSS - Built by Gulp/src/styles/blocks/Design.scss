@@ -1,0 +1,27 @@
+.design {
+	&__textContent {
+		flex: 1 1 auto;
+		padding: 40px 30px 40px;
+		& > * {
+			max-width: 600px;
+			margin: 0 auto;
+		}
+	}
+	&__decoration {
+		flex: 0 1 0;
+		display: flex;
+		background:url('../img/designBG.png') no-repeat;
+		background-size: cover;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.design {
+		&__textContent {
+			padding: 170px 10px 100px;
+		}
+		&__decoration {
+			flex: 0 1 35%;
+		}
+	}
+}

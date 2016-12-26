@@ -1,0 +1,126 @@
+body {
+	margin: 0;
+	padding: 25px 0;
+}
+
+/* Card Animation */
+
+.card-wrapper {
+	position:  relative;
+	width: 250px;
+	height:  400px;
+	perspective: 500px;
+	margin: 25px auto;
+}
+
+.card-wrapper > * {
+	position: absolute;
+	width: 100%;
+	height:  100%;
+	border-radius: 7px;
+	backface-visibility: hidden;
+	transition: all 1s;
+	background-position: center center;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.card-front {
+	background-image: URL("front.jpg"); 
+	transform: rotateY(0deg);
+}
+
+.card-back {
+	background-image: URL("back.jpg"); 
+	transform: rotateY(180deg);
+}
+
+/* End Card Animation */
+
+/* Boxes Animation */
+
+.dropBoxesWrapper {
+	perspective: 3000px;
+	margin-bottom: 25px;
+	display: flex;
+	flex-flow: row no-wrap;
+}
+
+
+.dropBox {
+	flex:  0 1 auto;
+	width: 0px;
+	height: 500px;
+	animation: rotation 5s forwards, width 0s forwards;
+	transform: rotateY(-76deg);
+	transform-origin: 0% 0%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.html {
+	background-color: orange;
+	background-image: url('box1.png');
+}
+
+.js {
+	background-color: #fff960;
+	background-image: url('box2.jpeg');	
+	animation-delay: 5s;
+}
+
+
+@keyframes rotation {
+	from {
+		transform: rotateY(-76deg);
+	}
+	to {
+		transform: rotateY(0deg);
+	}
+}
+
+@keyframes width {
+	from {
+		width: 0;
+	}
+	to {
+		width: 50%;
+	}
+}
+
+/* End Boxes Animation */
+
+/* Background Animation */
+
+.animBG {
+	position: relative;
+	width: 1000px;
+	height: 260px;
+	margin: 0 auto;
+	overflow: hidden;
+	background: url('animBG.jpg') repeat-x;
+	animation: bgAnimation linear 15s infinite;
+}
+
+@keyframes bgAnimation {
+	from {
+		background-position: 0;
+	}
+	to {
+		background-position: -640px;
+	}
+}
+
+.animBG__content {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	line-height: 50px;
+	top: 50%;
+	margin-top: -25px;
+	left: 0;
+	color: white;
+	font-size: 34px;
+}
+
+/* End Background Animation */

@@ -1,0 +1,24 @@
+.textContent {
+	font-weight: 600;
+	&__heading {
+		color: $red;
+		line-height: 3.125;
+		text-transform: uppercase;
+	}
+	&__heading2 {
+		color: $dark-gray;
+		font-size: 40px;
+		line-height: 1.25;
+		margin-bottom: 40px;
+		&_white {
+			color: white;
+		}
+	}
+	&__text {
+		margin-bottom: 30px;
+	}
+}
+
+.red {
+	color: $red; 
+}

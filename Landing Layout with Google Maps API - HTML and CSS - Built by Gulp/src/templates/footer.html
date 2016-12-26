@@ -1,0 +1,162 @@
+<footer class="footer">
+	<div class="wrapper">
+		<div class="cols">
+			<div class="col footer__col">
+				<p class="footer__colHeading">
+					Start <img src="../img/footerLogo.png" alt="" class="footer__colLogo">
+				</p>
+				<p class="footer__colText">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis minus molestiae, eos consectetur hic fugiat quis amet, quo autem, illum iure quisquam? Ratione modi alias sit sed suscipit id quod.
+				</p>
+			</div>
+			<div class="col footer__col footer__col_small">
+				<p class="footer__colHeading">
+					Support
+				</p>
+				<ul class="footer__colLinks">
+					<li class="footer__colLink"><a href="#">Help Center</a></li>
+					<li class="footer__colLink"><a href="#">Get Started</a></li>
+					<li class="footer__colLink"><a href="#">Contact Us</a></li>
+				</ul>				
+			</div>
+			<div class="col footer__col footer__col_small">
+				<p class="footer__colHeading">
+					About Us
+				</p>
+				<ul class="footer__colLinks">
+					<li class="footer__colLink"><a href="#">About Us</a></li>
+					<li class="footer__colLink"><a href="#">Terms of Use</a></li>
+					<li class="footer__colLink"><a href="#">Privacy Policy</a></li>
+				</ul>				
+			</div>
+			<div class="col footer__col">
+				<p class="footer__colHeading">
+					Get Newsletter
+				</p>
+				<div class="subscribe">
+					<input type="text" class="subscribe__input" placeholder="Email">
+					<button type="submit" class="subscribe__button"></button>
+				</div>	
+				<div class="social">
+					<a href="#" class="social__link"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+					<a href="#" class="social__link"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+					<a href="#" class="social__link"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+					<a href="#" class="social__link"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				</div>				
+			</div>
+		</div>
+	</div>
+</footer>
+	    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: 50.381196, lng: 30.4902663};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru,
+          styles: [
+          {
+          	"featureType": "road",
+          	"elementType": "labels.text.stroke",
+          	"stylers": [
+          		{'color': '#9b8400'}
+          	]
+          },
+          {
+          	"featureType": "road",
+          	"elementType": "labels.text.fill",
+          	"stylers": [
+          		{'color': '#cccccc'}
+          	]
+          },
+          {
+          	"featureType": "road",
+          	"elementType": "geometry",
+          	"stylers": [
+          		{'color': '#fff2c4'}
+          	]
+          },
+          {
+          	"featureType": "road.local",
+          	"elementType": "labels.text.stroke",
+          	"stylers": [
+          		{'color': '#0146b5'}
+          	]
+          },
+          {
+          	"featureType": "road.local",
+          	"elementType": "labels.text.fill",
+          	"stylers": [
+          		{'color': '#cccccc'}
+          	]
+          },
+          {
+          	"featureType": "road.local",
+          	"elementType": "geometry",
+          	"stylers": [
+          		{'color': '#d3b0e5'}
+          	]
+          },
+          {
+          	"featureType": "landscape.natural",
+          	"elementType": "geometry",
+          	"stylers": [
+          		{'color': '#8fd39f'}
+          	]
+          },
+          {
+          	"featureType": "landscape.man_made",
+          	"elementType": "geometry",
+          	"stylers": [
+          		{'color': '#32637a'}
+          	]
+          },
+          {
+          	"featureType": "transit",
+          	"elementType": "geometry",
+          	"stylers": [
+          		{'color': '#fcb437'}
+          	]
+          },
+          {
+          	"featureType": "poi.school",
+          	"elementType": "geometry",
+          	"stylers": [
+          		{'color': '#cccccc'}
+          	]
+          },
+          {
+          	"featureType": "poi.school",
+          	"elementType": "labels.text.fill",
+          	"stylers": [
+          		{'color': '#565656'}
+          	]
+          }
+          ]
+        });
+        var image = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          icon: image
+        });
+          var toUndergroundCoordinates = [
+    uluru,
+    {lat: 50.382919, lng: 30.4902363},
+    {lat: 50.384151, lng: 30.4851917},
+    {lat: 50.3812958, lng: 30.4783784}
+  ];
+  var toUnderground = new google.maps.Polyline({
+    path: toUndergroundCoordinates,
+    geodesic: true,
+    strokeColor: '#a86400',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+
+  toUnderground.setMap(map);
+      }
+    </script>
+	  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrcwvEEPqbgpeH87GYM0NZOfgC5WXNUeA&callback=initMap"
+  type="text/javascript"></script>

@@ -1,0 +1,23 @@
+.features {
+	background:
+	url('../img/CoffeeCup.png') 95% bottom no-repeat, 
+	url('../img/Earphones.png') 90% top no-repeat,
+	url('../img/Penholder.png') 5% 0px no-repeat;
+	background-color: $light-gray;
+	padding: 140px 10px;
+	& .cols {
+		margin: 40px 0;
+	}
+	& .col {
+		margin-bottom: 15px;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.features {
+		padding: 120px 10px;
+		& .cols {
+			margin: 80px 0; 
+		}
+	}
+}

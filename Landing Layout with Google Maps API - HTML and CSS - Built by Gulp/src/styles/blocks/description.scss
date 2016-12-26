@@ -1,0 +1,29 @@
+.description {
+	padding: 100px 0;
+	&__img {
+		& img {
+			width: 100%;
+		}
+	}
+	& > * {
+		flex: 0 1 100%;
+		padding: 30px;
+	}
+	&__textContent {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		& > * {
+			max-width: 550px;
+		}
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.description {
+		background: url('../img/Rectangle 21.png') left top no-repeat;
+		& > * {
+			flex: 0 1 48%;
+		}	
+	} 
+}

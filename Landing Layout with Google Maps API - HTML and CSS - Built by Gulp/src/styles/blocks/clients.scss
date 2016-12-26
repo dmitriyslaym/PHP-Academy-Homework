@@ -1,0 +1,16 @@
+
+.clients {
+	background:url('../img/Group4.png') left top;
+	padding: 100px 0 90px 0;
+	&__info {
+		margin-bottom: 90px;
+	}
+	&__logos {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		& > * {
+			margin-bottom: 15px;	
+		}		
+	}
+}

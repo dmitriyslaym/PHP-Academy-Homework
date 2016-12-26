@@ -1,0 +1,65 @@
+.form {
+	background-color: $blue;
+	text-align: center;
+	padding: 90px 15px;
+	&__textContent {
+		max-width: 750px;
+		padding: 0 15px;
+		margin: 0 auto;
+		text-align: center; 
+		margin-bottom: 90px;
+	}
+	&__items {
+		display: flex;
+		flex-flow: row wrap;
+		margin-bottom: 15px;
+		align-items: flex-start;
+		& > * {
+			flex: 1 0 210px;
+			margin: 15px 15px 50px 15px;
+		}
+	}
+	&__input {
+		color: $white !important;
+		background-color: #464c77;
+		&::placeholder {
+			color: $white !important;
+		}
+	}
+	&__button {
+		position: relative;
+		overflow: visible;
+		&::before {
+			position: absolute;
+			left: 0;
+			top: -60px;
+			content: '30 days free trial for all.';
+			width: 50px;
+			width: 100%;
+			height: 50px;
+			background: url('../img/ARROW.png') 0 15px no-repeat;
+			text-align: left;
+			padding-left: 30px;
+			height: 60px;
+			text-transform: none;
+			font-weight: bold;
+		}
+	}
+	&__note {
+		font-size: 16px;
+		color: rgba(246, 245, 243, 0.6);
+		line-height: 4.688;
+	}
+	&__noteUnderline {
+		text-decoration: underline;
+		color: inherit;
+	}
+}
+
+// @media screen and (min-width: 900px) {
+// 	.form {
+// 		&__button {
+// 		margin-top: 15px;	
+// 		}
+// 	}
+// }
