@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 1</title>
+</head>
+<body>
+	<script type="text/javascript">
+    // Variables
+        var menuOptions = "Что вы хотите сделать? 1. Добавить человека в очередь; 2. Просмотреть весь список добавленных; 3. Удалить человека; 4. Сортировка; 5. Выход с программы";
+        var error = "Неправильный ввод, повторите";
+        var arr = [];
+
+        function addDefaultPersons() {
+            var person = {
+            name: 'dima',
+            sname: 'slaym',
+            age:23,
+            sex:'male',
+            languages: ['html', 'css', 'js']
+            };
+            arr.push(person);
+            var person = {
+                name: 'barton',
+                sname: 'cole',
+                age:25,
+                sex:'male',
+                languages: ['html', 'css', 'js', 'php', 'perl']
+            };
+            arr.push(person);          
+        };        
+    // Describing functions    
+        function askMenu(sentence) {
+            if (sentence == undefined) {
+                sentence = menuOptions;
+            }
+            var menu = +prompt(sentence, '1|2|3|4|5');
+            switch (menu) {
+                case 1:
+                    askPersonData();
+                    askMenu();
+                    break;
+                case 2:
+                    showList();
+                    askMenu();
+                    break;
+                case 3:
+                    deletePerson();
+                    askMenu();
+                    break;
+                case 4:
+                    sortPerson();
+                    askMenu();
+                    break;
+                case 5:
+                    alert( 'Вы вышли из программы' );
+                    break;                                
+                default:
+                    askMenu(error);
+            }; 
+        };
+        // case 1
+        function askPersonData() {
+            var confirm;
+            do {
+                person = {
+                    name: prompt("Введите свое имя:"),
+                    sname: prompt("Введите свою фамилию:"),
+                    age: +prompt("Введите свой возраст:"),
+                    sex: getPersonSex(),
+                    languages: getPersonLang()   // Array.isArray(person.languages) == true
+                };
+                arr.push(person); 
+                confirm = prompt("Продолжить очередь?", "yes/no"); 
+            }
+            while (confirm == 'yes');   
+        };
+
+        function getPersonSex() {
+            do {
+                var sex = prompt("Введите свой пол:", "male | female");
+            } while (sex != "male" && sex != "female");
+            return sex;
+        };
+
+        function getPersonLang() {
+            var lang;
+            var langsArr =[];
+            var confirm;
+            do {
+                lang = prompt("Введите язык программирования");
+                langsArr.push(lang);
+                confirm = prompt("Продолжить ввод языков?", "yes/no");
+            } while (confirm == 'yes');
+            return langsArr; 
+        }
+
+        // case 2
+         function showList() {
+            var i;
+            var personNumber = i + 1;
+            for (i = 0; i < arr.length; i++) {
+                personNumber = i + 1;
+                alert('Person number ' + personNumber);
+                for (element in arr[i]) {
+                    alert(element + ": " + arr[i][element]);
+                };
+            };
+        };
+
+        // case 3
+        function deletePerson() {
+            var del = prompt('Введите имя человека, которого хотите удалить или его порядковый номер');
+            var i;
+            for (i = 0; i < arr.length; i++) {
+                if (i == del - 1) {
+                    for (element in arr[i]) {
+                       delete arr[i][element]; 
+                    }
+                    arr.splice(i,1);
+                    break;
+                }
+                else if (arr[i].name == del) {
+                    for (element in arr[i]) {
+                       delete arr[i][element]; 
+                    };
+                    arr.splice(i,1);
+                    break;      
+                }                              
+            };
+        };
+        // case 4
+        function sortPerson(error) {
+            var sortBase = +prompt(error || "По имени - 1 | По количеству языков программирования - 2 | По возрасту  3", '1|2|3');
+            switch (sortBase) {
+                case 1:
+                    sortPersonByName();
+                    askMenu();
+                    break;
+                case 2:
+                    sortPersonByLangLenght();
+                    askMenu();
+                    break;
+                case 3:
+                    sortPersonByAge();
+                    askMenu();
+                    break;
+                default:
+                    sortPerson(error);
+            }; 
+        };  
+
+        function sortPersonByName() {
+            arr.sort(compareName);
+            function compareName(a, b) {
+                if (a.name > b.name) {
+                  return 1;
+                }
+                if (a.name < b.name) {
+                  return -1;
+                }
+                return 0;
+                };
+        };
+
+        function sortPersonByLangLenght() {
+            arr.sort(compareLangLenght);
+            function compareLangLenght(personA, personB) {
+                return personA.languages.length - personB.languages.length;
+            };
+            arr.reverse();
+        };
+
+        function sortPersonByAge() {
+            arr.sort(compareAge);
+            function compareAge(personA, personB) {
+                return personA.age - personB.age;
+            };
+            arr.reverse();
+        };        
+
+
+    // Calling functions   
+        addDefaultPersons();  
+        askMenu();            
+	</script>
+</body>
+</html>

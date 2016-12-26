@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homework</title>
+    <script src="jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+          $('#animate').on('click', function() {
+            var basicString = $('.string');
+            var deleteString = $('.stringDelete');
+            var addString = $('.stringAdd');
+            // Getting Letters
+            function getLetters(string) {
+              var stringVal = string.val();
+              var letters = [];
+              for (var i = 0; i < stringVal.length; i++) {
+                var letter = stringVal.charAt(i);
+                letters.push(letter);
+              };
+              return letters;              
+            };
+            var basicLetters = getLetters(basicString);
+            var deleteLetters = getLetters(deleteString);
+            var addLetters = getLetters(addString);
+            // End Getting Letters
+
+            // Appending letters
+            function appendLetters(letters) {
+              for (var i = 0; i < letters.length; i++) {
+                var letter = $('<span class="letter"></span>');
+                letter.text(letters[i]).appendTo($('.output'));
+                letter.css('opacity', '0');
+              };              
+            }
+            appendLetters(basicLetters);
+            // End Appending letters
+
+            // Animating Letters
+            var letterSpans = $('.letter');
+            var i = -1;
+
+            function animateBasicLetters() {
+               if (i == letterSpans.length - 2) {
+                i++;
+                $(letterSpans[i]).animate({opacity: '1'}, 500, animateDeleteLetters).delay(1000);
+               }
+               i++;
+               $(letterSpans[i]).animate({opacity: '1'}, 500, animateBasicLetters);
+            };
+
+            function animateDeleteLetters() {
+              if (i == letterSpans.length - deleteLetters.length) {
+                $(letterSpans).slice(i).remove();
+                appendLetters(addLetters);
+                i--;
+                letterSpans = $('.letter');
+                 function animateAddLetters() {
+                   if (i == letterSpans.length - 1) {
+                      return;
+                   }
+                   i++;
+                   $(letterSpans[i]).animate({opacity: '1'}, 500, animateAddLetters);
+                };
+                animateAddLetters();
+                return;
+              }
+              i--;
+              $(letterSpans[i]).animate({opacity: '0'}, 500, animateDeleteLetters);
+            }
+
+            animateBasicLetters();
+            animateDeleteLetters();
+            // End Animating Letters
+          });     
+        });
+    </script>
+</head>
+<body>
+    <style>
+      .output {
+        font-size: 26px;
+        font-weight: bold;
+      }
+    </style>
+    <textarea class="string" placeholder="Исходная строка"></textarea>
+    <textarea class="stringDelete" placeholder="Строка для удаления"></textarea>
+    <textarea class="stringAdd" placeholder="Строка для добавления"></textarea>
+    <button id="animate">Преобразовать</button>
+    <p class="output"></p>
+</body>
+</html>
